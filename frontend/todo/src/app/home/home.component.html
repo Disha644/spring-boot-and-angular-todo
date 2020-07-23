@@ -1,0 +1,31 @@
+<div class="container mt-5">
+<table class="table">
+    <thead class="style">
+      <tr>
+        <th scope="col">Description</th>
+        <th scope="col">Target Date</th>
+        <th scope="col">Update</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let todo of todos">
+        <td>{{ todo.description }}</td>
+        <td>{{ todo.targetDate | date }}</td>
+        <td><button class="btn btn-1 btn-sm" (click)="updateTodo(todo.id)">Update</button></td>
+        <td><button class="btn btn-2 btn-sm" (click)="deleteTodo(todo.id, todo.email)">Delete</button></td>
+      </tr>    
+    </tbody>
+</table>
+
+<button class="btn btn-link" (click)="addTodo()">Add new todo</button>
+
+<div class="alert alert-success" *ngIf="deleteSuccessMessage">
+  {{ deleteSuccessMessage }}
+</div>
+
+<div class="alert alert-danger" *ngIf="deleteErrorMessage">
+{{ deleteErrorMessage }}
+</div>
+
+</div>
